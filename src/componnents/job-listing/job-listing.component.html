@@ -1,0 +1,38 @@
+<div class="row">
+    <div class="col-md-12">
+      <a class="btn btn-sm btn-primary" [routerLink]="['create-job']">
+        Cerate Job
+      </a>
+    </div>
+  
+  </div>
+  
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Job Number</th>
+        <th scope="col">Title</th>
+        <th scope="col">Experience Required</th>
+        <th scope="col">Openings</th>
+        <th scope="col">Start date</th>
+        <th scope="col">Close date</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let job of jobList">
+        <th scope="row">{{ job.id }}</th>
+        <td>{{ job.job_number }}</td>
+        <td>{{ job.job_title }}</td>
+        <td>{{ job.experience_required }}</td>
+        <td>{{ job.number_of_openings }}</td>
+        <td>{{ job.job_start_date }}</td>
+        <td>{{ job.job_close_date }}</td>
+        <td>
+          <a [routerLink]="['edit-job', job.id ]" class="btn btn-sm btn-secondary mr-2" style="margin-right: 5px;"><i class="bi bi-pencil"></i></a>
+          <button (click)="deleteJob(job.id)" class="btn btn-sm btn-danger ml-5"><i class="bi bi-trash"></i></button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
